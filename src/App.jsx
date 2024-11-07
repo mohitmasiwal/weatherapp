@@ -12,6 +12,7 @@ const App = () => {
   const apiid = "c607e0c76c39dbddda5e572e818238f2";
 
   const fetchApi = async () => {
+    
     let response = await fetch(`${api}${city}&appid=${apiid}`);
     const data = await response.json();
     setWeather(data);
@@ -60,23 +61,24 @@ const App = () => {
             </div>
 
             <div className="flex justify-center mb-6">
-              <TiWeatherPartlySunny className="text-yellow-400 text-8xl animate-bounce" />
-              <TiWeatherShower className="text-yellow-400 text-8xl animate-bounce" />
-              <TiWeatherStormy className="text-yellow-400 text-8xl animate-bounce" />
-              <TiWeatherDownpour className="text-yellow-400 text-8xl animate-bounce" />
+              <TiWeatherPartlySunny className="text-yellow-400 text-8xl animate-pulse" />
+              <TiWeatherShower className="text-yellow-400 text-8xl animate-pulse" />
+              <TiWeatherStormy className="text-yellow-400 text-8xl  animate-pulse" />
+              <TiWeatherDownpour className="text-yellow-400 text-8xl animate-pulse" />
             </div>
 
             <div className="flex flex-col items-center mt-10">
               <h1 className="text-4xl font-bold hover:text-gray-300 text-white drop-shadow-lg">
-                {weather?.main?.temp} °C
+                {weather?.main?.temp} °C 
+                
               </h1>
               <h2 className="text-3xl flex items-center font-bold hover:text-gray-300 text-white mt-2 drop-shadow-lg">
-                <MdLocationCity /> - {weather?.name}
+                <MdLocationCity /> - {weather?.name}{weather?.message}
               </h2>
             </div>
           </div>
 
-          {/* Wind Speed and Humidity Section at the Bottom */}
+         
           <div className="flex flex-col md:flex-row justify-between mt-8 text-white">
             <div className="flex flex-col items-center mb-4 md:mb-0">
               <h3 className="font-bold   flex items-center">
@@ -104,7 +106,7 @@ const App = () => {
               <h3 className="font-bold    flex items-center mt-5">
                 <FaCloudSun className="mr-1" /> Visibility
               </h3>
-              <span className="text-lg hover:text-gray-300">{weather?.visibility / 1000} km</span>
+              <span className="text-lg hover:text-gray-300">{weather?.visibility / 1000} km</span> 
             </div>
           </div>
         </div>
